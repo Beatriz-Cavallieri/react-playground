@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import './styles.css'
 
 const CommentsList = (props: {
@@ -9,6 +9,7 @@ const CommentsList = (props: {
         name: "",
         comment: "",
     })
+    const nameInputRef = useRef<HTMLInputElement>(null)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValues((values) => ({
@@ -20,6 +21,13 @@ const CommentsList = (props: {
     const handleSubmit = () => {
         props.onSubmit(values.name, values.comment)
     }
+
+    const moveFocusToForm = () => {
+        if(nameInputRef.current) nameInputRef.current.focus()
+    }
+
+    useEffect(moveFocusToForm, [])
+
     return (
         <div className='commentsList'>
             <h4>Comments</h4>
@@ -30,6 +38,7 @@ const CommentsList = (props: {
             <form>
                 <label htmlFor="name">Your Name</label>
                 <input
+                    ref={nameInputRef}
                     name="name"
                     type="text"
                     value={values.name}
