@@ -1,0 +1,12 @@
+article {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    color: lightslategrey;
+}
+
+.parentWrapper, .childWrapper {
+    border: 1px solid #747bff;
+    border-radius: 10px;
+    padding: 30px;
+}

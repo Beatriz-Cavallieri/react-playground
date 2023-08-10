@@ -1,0 +1,18 @@
+.commentsList {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: decimal;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-bottom: 15px;
+}
